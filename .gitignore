@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+._*
+
+# Editör ve IDE
+.vscode/
+.idea/
+*.swp
+
+# Geçici dosyalar
+*.tmp
+*.log
+
+# Yerel not dosyası (git'e yüklenmez)
+BeniOkuYapilanIsler.txt

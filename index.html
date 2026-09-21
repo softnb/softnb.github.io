@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="google-site-verification" content="gaupGS773rn28-C9aeifcqCVdAO1fZfyn6MLBPAt6GU" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoftNB — Mobile Puzzle Games</title>
+  <meta name="description" content="SoftNB is an independent mobile game studio by Nurettin Bardakci, making casual puzzle games including Drop 7, Dice Merge, Slide Block Puzzle and Sudoku 123.">
+  <meta name="author" content="SoftNB">
+  <meta name="owner" content="SoftNB">
+  <meta name="copyright" content="© 2026 SoftNB">
+  <meta name="keywords" content="SoftNB, Nurettin Bardakci, mobile games, puzzle games, casual games, Drop 7, Dice Merge, Slide Block Puzzle, Sudoku 123, NB Block Puzzle, Damla Memory">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SoftNB — Mobile Puzzle Games">
+  <meta property="og:description" content="Casual puzzle games for Android & iOS, made by an independent studio.">
+  <meta property="og:url" content="https://softnb.github.io/">
+  <meta property="og:image" content="https://softnb.github.io/Drop7_2024/images/OzellikGrafigi1024x500_NB_Drop7_2024_03Ekim2024.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="500">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="canonical" href="https://softnb.github.io/">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png">
+  <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      color-scheme: dark;
+      --paper: #000000;
+      --surface: #1c1e28;
+      --surface-2: #23252f;
+      --line: #343744;
+      --ink: #eef0f6;
+      --ink-muted: #a6acbd;
+      --ink-faint: #6f7690;
+      --accent: #ff7a56;
+      --accent-ink: #1a0e08;
+      --accent-tint: #3a2018;
+      --accent-2: #a08bff;
+      --link-blue: #5b9dff;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 12px 28px -10px rgba(0, 0, 0, 0.55);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Manrope", system-ui, -apple-system, sans-serif;
+      line-height: 1.55;
+      padding-inline: 20px;
+      padding-block: 0 64px;
+    }
+    main { max-width: 1080px; margin-inline: auto; }
+
+    h1, h2, .disp {
+      font-family: "Baloo 2", "Manrope", sans-serif;
+      font-weight: 700;
+      text-wrap: balance;
+    }
+
+    /* ---- header ---- */
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 10px;
+      padding-block: 56px 40px;
+    }
+    .logo {
+      width: 56px;
+      height: 56px;
+      display: block;
+    }
+    .brand-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .wordmark {
+      font-family: inherit;
+      font-size: clamp(34px, 6vw, 48px);
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      margin: 0;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    .tagline {
+      color: var(--ink-muted);
+      font-size: 17px;
+      max-width: 46ch;
+      margin: 0;
+    }
+    .byline {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 14px;
+      margin-top: 6px;
+      font-size: 14px;
+      color: var(--ink-faint);
+    }
+    .byline a { color: var(--ink-muted); text-decoration: none; border-bottom: 1px solid var(--line); }
+    .byline a:hover { color: var(--accent); border-color: var(--accent); }
+
+    /* ---- games grid ---- */
+    .games {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 22px;
+      margin-block-start: 8px;
+    }
+    .game-card {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s ease;
+    }
+    .game-card:hover,
+    .game-card:focus-visible {
+      transform: translateY(-3px);
+      background: #ffffff;
+    }
+    .game-card:hover h2,
+    .game-card:focus-visible h2 {
+      color: #14151c;
+    }
+    .game-card .thumb {
+      aspect-ratio: 750 / 366;
+      width: 100%;
+      overflow: hidden;
+      background: #000;
+      padding: 0;
+      transition: background-color 0.15s ease, padding 0.15s ease;
+    }
+    .game-card:hover .thumb,
+    .game-card:focus-visible .thumb {
+      background: #ffffff;
+      padding: 5px;
+    }
+    .game-card:hover .thumb img,
+    .game-card:focus-visible .thumb img {
+      object-fit: contain;
+    }
+    .game-card .thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .game-card .body {
+      padding: 16px 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+    .game-card h2 {
+      font-size: 19px;
+      margin: 0;
+      line-height: 1.25;
+    }
+    .game-card .cta {
+      margin-top: auto;
+      padding-top: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--link-blue);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .game-card .cta::after { content: "→"; transition: transform 0.15s ease; }
+    .game-card:hover .cta::after { transform: translateX(3px); }
+    .game-card:hover .cta,
+    .game-card:focus-visible .cta { color: #1a56c4; }
+
+    /* ---- footer / play button ---- */
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      margin-block-start: 48px;
+    }
+    .play-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      color: var(--ink);
+      border: 1px solid var(--line);
+      font-weight: 600;
+      font-size: 15px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      transition: border-color 0.15s ease;
+    }
+    .play-btn:hover { border-color: var(--accent); }
+
+    footer {
+      text-align: center;
+      color: var(--ink-faint);
+      font-size: 13px;
+      margin-block-start: 40px;
+    }
+
+    @media (max-width: 420px) {
+      .games { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "SoftNB",
+  "url": "https://softnb.github.io/",
+  "logo": "https://softnb.github.io/images/logo.png",
+  "email": "nbardakci1975@gmail.com",
+  "description": "Independent mobile game studio making casual puzzle games for Android.",
+  "founder": {
+    "@type": "Person",
+    "name": "Nurettin Bardakcı"
+  },
+  "sameAs": [
+    "https://play.google.com/store/apps/dev?id=6171470959010710848"
+  ]
+}
+  </script>
+</head>
+<body>
+<main>
+
+  <header>
+    <div class="brand-row">
+      <picture>
+        <source srcset="images/logo.webp" type="image/webp">
+        <img class="logo" src="images/logo.png" alt="SoftNB logo" width="56" height="56">
+      </picture>
+      <h1 class="wordmark">SoftNB</h1>
+    </div>
+    <p class="tagline">Independent mobile game studio — simple, addictive, casual fun games.</p>
+    <div class="byline">
+      <span>Nurettin Bardakcı</span>
+      <a href="mailto:nbardakci1975@gmail.com">nbardakci1975@gmail.com</a>
+    </div>
+    <a class="play-btn" href="https://play.google.com/store/apps/dev?id=6171470959010710848">
+      Get it on Google Play
+    </a>
+  </header>
+
+  <div class="games">
+
+    <a class="game-card" href="Drop7_2024/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="Drop7_2024/images/feature.webp" type="image/webp">
+          <img src="Drop7_2024/images/feature.jpg" alt="Drop 7 - 2025" width="900" height="439">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Drop 7 — 2025</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="DiceMerge/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="DiceMerge/images/feature.webp" type="image/webp">
+          <img src="DiceMerge/images/feature.jpg" alt="Dice Merge" width="900" height="439">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Dice Merge</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="Sudoku/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="Sudoku/images/feature.webp" type="image/webp">
+          <img src="Sudoku/images/feature.jpg" alt="Sudoku 123 - Free Offline Classic Puzzle Game" width="900" height="439">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Sudoku 123</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="NBdropthenumber/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="NBdropthenumber/images/feature.webp" type="image/webp">
+          <img src="NBdropthenumber/images/feature.jpg" alt="Drop The Number 7" width="900" height="439" loading="lazy">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Drop The Number 7</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="SlideBlockPuzzle/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="SlideBlockPuzzle/images/feature.webp" type="image/webp">
+          <img src="SlideBlockPuzzle/images/feature.jpg" alt="Slide Block Puzzle" width="900" height="439" loading="lazy">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Slide Block Puzzle</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="NBBlock/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="NBBlock/images/feature.webp" type="image/webp">
+          <img src="NBBlock/images/feature.jpg" alt="NB Block Puzzle Game" width="900" height="439" loading="lazy">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>NB Block Puzzle</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+    <a class="game-card" href="DamlaMemory/index.html">
+      <div class="thumb">
+        <picture>
+          <source srcset="DamlaMemory/images/feature.webp" type="image/webp">
+          <img src="DamlaMemory/images/feature.jpg" alt="Damla Memory" width="900" height="439" loading="lazy">
+        </picture>
+      </div>
+      <div class="body">
+        <h2>Damla Memory</h2>
+        <span class="cta">View page</span>
+      </div>
+    </a>
+
+  </div>
+
+  <div class="cta-row">
+    <a class="play-btn" href="https://play.google.com/store/apps/dev?id=6171470959010710848">
+      View all games on Google Play
+    </a>
+  </div>
+
+  <footer>
+    © 2026 SoftNB — Nurettin Bardakcı
+  </footer>
+
+</main>
+</body>
+</html>
