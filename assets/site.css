@@ -253,6 +253,50 @@ footer {
   margin-block-start: 40px;
 }
 
+/* ---- game details / long description ---- */
+.details-label {
+  font-size: 15px;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+}
+.game-details {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.game-details > p {
+  color: var(--ink-muted);
+  margin: 0 0 14px;
+}
+.game-details h3 {
+  font-size: 17px;
+  margin: 0 0 10px;
+}
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin: 20px 0 28px;
+}
+.details-group {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px 20px;
+}
+.details-group ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--ink-muted);
+  font-size: 14.5px;
+}
+.details-group li { margin-bottom: 6px; }
+.details-group li:last-child { margin-bottom: 0; }
+.details-note {
+  color: var(--ink-faint);
+  font-size: 13.5px;
+}
+
 /* ---- legal pages (privacy policy, terms) ---- */
 .legal-doc {
   max-width: 720px;
