@@ -122,6 +122,18 @@ h1, h2, h3, .disp {
   .gallery img { height: 320px; }
 }
 
+/* ---- landscape screenshot gallery (e.g. Tavla) ----
+   sized by width instead of height, so a wide screenshot still fits
+   fully on screen when the phone is held upright, instead of
+   overflowing sideways at a fixed row height */
+.gallery.gallery-wide img {
+  height: auto;
+  width: min(86vw, 640px);
+}
+@media (max-width: 640px) {
+  .gallery.gallery-wide img { height: auto; }
+}
+
 .contact-block {
   text-align: center;
   color: var(--ink-muted);
