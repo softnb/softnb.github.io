@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
   <url>
-    <loc>https://softnb.github.io/</loc><lastmod>2026-10-29</lastmod>
+    <loc>https://softnb.github.io/</loc><lastmod>2026-11-05</lastmod>
   </url>
 
   <!-- Tavla -->
@@ -12,6 +12,11 @@
   <url><loc>https://softnb.github.io/Tavla/TavlaPrivacyPolicyTr.html</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://softnb.github.io/Tavla/TermConditions.html</loc><lastmod>2026-10-29</lastmod></url>
   <url><loc>https://softnb.github.io/Tavla/TermConditions_Tr.html</loc><lastmod>2026-10-29</lastmod></url>
+
+  <!-- Okey -->
+  <url><loc>https://softnb.github.io/Okey/</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://softnb.github.io/Okey/OkeyPrivacyPolicy.html</loc><lastmod>2026-11-05</lastmod></url>
+  <url><loc>https://softnb.github.io/Okey/TermConditions.html</loc><lastmod>2026-11-05</lastmod></url>
 
   <!-- Drop7 - 2025 -->
   <url><loc>https://softnb.github.io/Drop7_2024/</loc><lastmod>2026-10-29</lastmod></url>
