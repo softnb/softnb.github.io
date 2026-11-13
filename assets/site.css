@@ -128,10 +128,55 @@ h1, h2, h3, .disp {
    overflowing sideways at a fixed row height */
 .gallery.gallery-wide img {
   height: auto;
-  width: min(86vw, 640px);
+  /* ~78% of the visible width, so the edge of the next screenshot peeks in
+     and shows that the row can be swiped */
+  width: min(calc(78vw - 30px), 640px);
+  scroll-snap-align: start;
 }
+.gallery.gallery-wide { scroll-padding-inline: 4px; padding-bottom: 12px; }
 @media (max-width: 640px) {
   .gallery.gallery-wide img { height: auto; }
+}
+
+/* ---- gallery position dots + swipe hint (assets/gallery.js) ---- */
+.gallery-dots {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  margin: 0 0 6px;
+}
+.gallery-dots button {
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.gallery-dots button::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--line);
+  transition: background-color 0.15s ease, transform 0.15s ease;
+}
+.gallery-dots button[aria-current="true"]::before {
+  background: var(--accent);
+  transform: scale(1.25);
+}
+.gallery-hint {
+  text-align: center;
+  color: var(--ink-faint);
+  font-size: 13px;
+  margin: 0 0 8px;
+  transition: opacity 0.3s ease;
+}
+.gallery-hint.is-hidden { opacity: 0; }
+@media (hover: hover) and (pointer: fine) {
+  .gallery-hint { display: none; }
 }
 
 .contact-block {
